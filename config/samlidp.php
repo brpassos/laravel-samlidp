@@ -28,9 +28,13 @@ return [
     'encrypt_assertion' => true,
     // Make sure messages are signed
     'messages_signed' => true,
-    // Defind what digital algorithm you want to use
+    // Define what digital algorithm you want to use
     'digest_algorithm' => \RobRichards\XMLSecLibs\XMLSecurityDSig::SHA1,
-    // list of all service providers
+    // If sp storage is in a table in bd
+    'sp_db_storage' => env('SP_DB_STORAGE', false),
+    // Table SP
+    'sp_table' => env('SP_TABLE', ''),
+    // list of all service providers. Keep array empty in case sp_db_storage => true
     'sp' => [
         // Base64 encoded ACS URL
         // 'aHR0cHM6Ly9teWZhY2Vib29rd29ya3BsYWNlLmZhY2Vib29rLmNvbS93b3JrL3NhbWwucGhw' => [

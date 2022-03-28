@@ -158,6 +158,22 @@ class SamlSso implements SamlContract
 
     private function setDestination()
     {
+
+        $sps = config('samlidp.sp');
+        if(config('samlidp.sp_db_storage')){
+            $spDB = DB::table(config('samlidp.sp_table'))->get();
+            if($spDB){
+                foreach ($spDB as $sp) {
+                    $sps[$sp->base64] = [
+                        'destination' => $sp->destination,
+                        'logout' => $sp->logout,
+                        'certificate' => $sp->certificate
+                    ];
+                }
+                config(['samlidp.sp' => $sps]);
+            }
+        }
+
         $destination = config(sprintf(
             'samlidp.sp.%s.destination',
             $this->getServiceProvider($this->authn_request)
@@ -187,6 +203,21 @@ class SamlSso implements SamlContract
 
     private function getQueryParams()
     {
+        $sps = config('samlidp.sp');
+        if(config('samlidp.sp_db_storage')){
+            $spDB = DB::table(config('samlidp.sp_table'))->get();
+            if($spDB){
+                foreach ($spDB as $sp) {
+                    $sps[$sp->base64] = [
+                        'destination' => $sp->destination,
+                        'logout' => $sp->logout,
+                        'certificate' => $sp->certificate
+                    ];
+                }
+                config(['samlidp.sp' => $sps]);
+            }
+        }
+
         $queryParams = config(sprintf(
             'samlidp.sp.%s.query_params',
             $this->getServiceProvider($this->authn_request)
@@ -203,6 +234,22 @@ class SamlSso implements SamlContract
 
     public function setSpCertificate()
     {
+
+        $sps = config('samlidp.sp');
+        if(config('samlidp.sp_db_storage')){
+            $spDB = DB::table(config('samlidp.sp_table'))->get();
+            if($spDB){
+                foreach ($spDB as $sp) {
+                    $sps[$sp->base64] = [
+                        'destination' => $sp->destination,
+                        'logout' => $sp->logout,
+                        'certificate' => $sp->certificate
+                    ];
+                }
+                config(['samlidp.sp' => $sps]);
+            }
+        }
+
         $this->sp_certificate = config(sprintf(
             'samlidp.sp.%s.certificate',
             $this->getServiceProvider($this->authn_request)

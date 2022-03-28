@@ -6,6 +6,7 @@ use Illuminate\Routing\Controller;
 use CodeGreenCreative\SamlIdp\Jobs\SamlSlo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class LogoutController extends Controller
 {
@@ -27,7 +28,20 @@ class LogoutController extends Controller
 
         // Need to broadcast to our other SAML apps to log out!
         // Loop through our service providers and "touch" the logout URL's
-        foreach (config('samlidp.sp') as $key => $sp) {
+        $sps = config('samlidp.sp');
+        if(config('samlidp.sp_db_storage')){
+            $spDB = DB::table(config('samlidp.sp_table'))->get();
+            if($spDB){
+                foreach ($spDB as $sp) {
+                    $sp[$sp->base64] = [
+                        'destination' => $sp->destination,
+                        'logout' => $sp->logout,
+                        'certificate' => $sp->certificate
+                    ];
+                }
+            }
+        }
+        foreach ($sps as $key => $sp) {
             // Check if the service provider supports SLO
             if (! empty($sp['logout']) && ! in_array($key, $request->session()->get('saml.slo', []))) {
                 // Push this SP onto the saml slo array
