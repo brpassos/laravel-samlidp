@@ -19,13 +19,13 @@
   },
   "autoload": {
     "psr-4": {
-      "CodeGreenCreative\\SamlIdp\\": "src/"
+      "Brpassos\\SamlIdp\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "CodeGreenCreative\\SamlIdp\\LaravelSamlIdpServiceProvider"
+        "Brpassos\\SamlIdp\\LaravelSamlIdpServiceProvider"
       ]
     }
   }
