@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeGreenCreative\SamlIdp\Listeners;
+namespace Brpassos\SamlIdp\Listeners;
 
 use Illuminate\Auth\Events\Logout;
 

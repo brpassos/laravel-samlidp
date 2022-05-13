@@ -27,7 +27,7 @@ return [
     // Encrypt requests and responses
     'encrypt_assertion' => true,
     // Make sure messages are signed
-    'messages_signed' => true,
+    'messages_signed' => false,
     // Define what digital algorithm you want to use
     'digest_algorithm' => \RobRichards\XMLSecLibs\XMLSecurityDSig::SHA1,
     // If sp storage is in a table in bd
@@ -54,15 +54,15 @@ return [
 
     // All of the Laravel SAML IdP event / listener mappings.
     'events' => [
-        'CodeGreenCreative\SamlIdp\Events\Assertion' => [],
+        'Brpassos\SamlIdp\Events\Assertion' => [],
         'Illuminate\Auth\Events\Logout' => [
-            'CodeGreenCreative\SamlIdp\Listeners\SamlLogout',
+            'Brpassos\SamlIdp\Listeners\SamlLogout',
         ],
         'Illuminate\Auth\Events\Authenticated' => [
-            'CodeGreenCreative\SamlIdp\Listeners\SamlAuthenticated',
+            'Brpassos\SamlIdp\Listeners\SamlAuthenticated',
         ],
         'Illuminate\Auth\Events\Login' => [
-            'CodeGreenCreative\SamlIdp\Listeners\SamlLogin',
+            'Brpassos\SamlIdp\Listeners\SamlLogin',
         ],
     ],
 

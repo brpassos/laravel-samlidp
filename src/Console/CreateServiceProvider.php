@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeGreenCreative\SamlIdp\Console;
+namespace Brpassos\SamlIdp\Console;
 
 use Illuminate\Console\Command;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace CodeGreenCreative\SamlIdp\Jobs;
+namespace Brpassos\SamlIdp\Jobs;
 
-use CodeGreenCreative\SamlIdp\Contracts\SamlContract;
-use CodeGreenCreative\SamlIdp\Events\Assertion as AssertionEvent;
-use CodeGreenCreative\SamlIdp\Exceptions\DestinationMissingException;
-use CodeGreenCreative\SamlIdp\Traits\PerformsSingleSignOn;
+use Brpassos\SamlIdp\Contracts\SamlContract;
+use Brpassos\SamlIdp\Events\Assertion as AssertionEvent;
+use Brpassos\SamlIdp\Exceptions\DestinationMissingException;
+use Brpassos\SamlIdp\Traits\PerformsSingleSignOn;
 use Illuminate\Foundation\Bus\Dispatchable;
 use LightSaml\Binding\BindingFactory;
 use LightSaml\Context\Profile\MessageContext;

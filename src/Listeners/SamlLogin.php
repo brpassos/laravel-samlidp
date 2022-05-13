@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeGreenCreative\SamlIdp\Listeners;
+namespace Brpassos\SamlIdp\Listeners;
 
-use CodeGreenCreative\SamlIdp\Jobs\SamlSso;
+use Brpassos\SamlIdp\Jobs\SamlSso;
 use Illuminate\Auth\Events\Login;
 
 class SamlLogin

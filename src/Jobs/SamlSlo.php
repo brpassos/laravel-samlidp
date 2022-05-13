@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeGreenCreative\SamlIdp\Jobs;
+namespace Brpassos\SamlIdp\Jobs;
 
-use CodeGreenCreative\SamlIdp\Traits\PerformsSingleSignOn;
+use Brpassos\SamlIdp\Traits\PerformsSingleSignOn;
 use Illuminate\Foundation\Bus\Dispatchable;
 use LightSaml\Helper;
 use LightSaml\Model\Assertion\Issuer;
