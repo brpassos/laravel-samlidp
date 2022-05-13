@@ -161,7 +161,7 @@ class SamlSso implements SamlContract
 
         $sps = config('samlidp.sp');
         if(config('samlidp.sp_db_storage')){
-            $spDB = DB::table(config('samlidp.sp_table'))->get();
+            $spDB = \Illuminate\Support\Facades\DB::table(config('samlidp.sp_table'))->get();
             if($spDB){
                 foreach ($spDB as $sp) {
                     $sps[$sp->base64] = [
@@ -205,7 +205,7 @@ class SamlSso implements SamlContract
     {
         $sps = config('samlidp.sp');
         if(config('samlidp.sp_db_storage')){
-            $spDB = DB::table(config('samlidp.sp_table'))->get();
+            $spDB = \Illuminate\Support\Facades\DB::table(config('samlidp.sp_table'))->get();
             if($spDB){
                 foreach ($spDB as $sp) {
                     $sps[$sp->base64] = [
@@ -237,7 +237,7 @@ class SamlSso implements SamlContract
 
         $sps = config('samlidp.sp');
         if(config('samlidp.sp_db_storage')){
-            $spDB = DB::table(config('samlidp.sp_table'))->get();
+            $spDB = \Illuminate\Support\Facades\DB::table(config('samlidp.sp_table'))->get();
             if($spDB){
                 foreach ($spDB as $sp) {
                     $sps[$sp->base64] = [
