@@ -33,7 +33,7 @@ class LogoutController extends Controller
             $spDB = DB::table(config('samlidp.sp_table'))->get();
             if($spDB){
                 foreach ($spDB as $sp) {
-                    $sp[$sp->base64] = [
+                    $sps[$sp->base64] = [
                         'destination' => $sp->destination,
                         'logout' => $sp->logout,
                         'certificate' => $sp->certificate
