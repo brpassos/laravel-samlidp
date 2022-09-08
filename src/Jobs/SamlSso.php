@@ -194,7 +194,7 @@ class SamlSso implements SamlContract
                 $destination = Str::finish(url($destination), '?') . url(Arr::query($queryParams));
             }
             else{
-                $destination .= '&'.Arr::query($queryParams);
+                $destination .= '&'.url(Arr::query($queryParams));
             }
         }
 
