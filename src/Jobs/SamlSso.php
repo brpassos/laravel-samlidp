@@ -191,10 +191,10 @@ class SamlSso implements SamlContract
         $queryParams = $this->getQueryParams();
         if (!empty($queryParams)) {
             if (!parse_url($destination, PHP_URL_QUERY)){
-                $destination = Str::finish(url($destination), '?') . url(Arr::query($queryParams));
+                $destination = Str::finish(url($destination), '?') . urldecode(Arr::query($queryParams));
             }
             else{
-                $destination .= '&'.url(Arr::query($queryParams));
+                $destination .= '&'.urldecode(Arr::query($queryParams));
             }
         }
 
